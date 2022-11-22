@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<ArrayOfSeller xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Seller>
+    <SellerLogin>admin</SellerLogin>
+    <SellerPassword>admin</SellerPassword>
+    <SellerName>Test</SellerName>
+    <SellerSurname>Seller</SellerSurname>
+    <SellerClientList>
+      <Client>
+        <ClientName>John</ClientName>
+        <ClientSurname>Doe</ClientSurname>
+        <ClientEmail>john_doe@gmail.com</ClientEmail>
+        <ClientPhone>994501234569</ClientPhone>
+        <ClientAdress>Earth</ClientAdress>
+      </Client>
+    </SellerClientList>
+    <SellerGoodsList>
+      <Goods>
+        <GoodsName>Doritos</GoodsName>
+        <GoodsPrice>3.2</GoodsPrice>
+        <GoodsAmount>70</GoodsAmount>
+        <GoodsDescription>Crispy Corn Chips</GoodsDescription>
+      </Goods>
+    </SellerGoodsList>
+    <SellerOrderList>
+      <Order>
+        <OrderingClient>
+          <ClientName>John</ClientName>
+          <ClientSurname>Doe</ClientSurname>
+          <ClientEmail>john_doe@gmail.com</ClientEmail>
+          <ClientPhone>994501234569</ClientPhone>
+          <ClientAdress>Earth</ClientAdress>
+        </OrderingClient>
+        <GoodsToOrder>
+          <GoodsName>Doritos</GoodsName>
+          <GoodsPrice>3.2</GoodsPrice>
+          <GoodsAmount>90</GoodsAmount>
+          <GoodsDescription>Crispy Corn Chips</GoodsDescription>
+        </GoodsToOrder>
+        <OrderAmount>10</OrderAmount>
+        <OrderTime>2022-11-23T00:00:00</OrderTime>
+      </Order>
+      <Order>
+        <OrderingClient>
+          <ClientName>John</ClientName>
+          <ClientSurname>Doe</ClientSurname>
+          <ClientEmail>john_doe@gmail.com</ClientEmail>
+          <ClientPhone>994501234569</ClientPhone>
+          <ClientAdress>Earth</ClientAdress>
+        </OrderingClient>
+        <GoodsToOrder>
+          <GoodsName>Doritos</GoodsName>
+          <GoodsPrice>3.2</GoodsPrice>
+          <GoodsAmount>70</GoodsAmount>
+          <GoodsDescription>Crispy Corn Chips</GoodsDescription>
+        </GoodsToOrder>
+        <OrderAmount>20</OrderAmount>
+        <OrderTime>2022-11-25T00:00:00</OrderTime>
+      </Order>
+    </SellerOrderList>
+  </Seller>
+</ArrayOfSeller>

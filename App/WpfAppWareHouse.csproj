@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\BoxIcon.png" />
+    <None Remove="Assets\RobotWallpaper.jpg" />
+    <None Remove="Assets\RobotWallpaper2.jpg" />
+    <None Remove="Assets\RobotWallpaper3.jpg" />
+    <None Remove="Assets\RobotWallpaper4.jpg" />
+    <None Remove="Assets\RobotWallpaper5.jpg" />
+    <None Remove="Assets\StepLogo.png" />
+    <None Remove="BoxIcon.png" />
+    <None Remove="Help.png" />
+    <None Remove="Info.png" />
+    <None Remove="RobotWallpaper2.jpg" />
+    <None Remove="RobotWallpaper4.jpg" />
+    <None Remove="StepLogo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dragablz" Version="0.0.3.223" />
+    <PackageReference Include="Extended.Wpf.Toolkit" Version="4.1.0" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\BoxIcon.png" />
+    <Resource Include="Assets\RobotWallpaper.jpg" />
+    <Resource Include="Assets\RobotWallpaper2.jpg" />
+    <Resource Include="Assets\RobotWallpaper3.jpg" />
+    <Resource Include="Assets\RobotWallpaper4.jpg" />
+    <Resource Include="Assets\RobotWallpaper5.jpg" />
+    <Resource Include="Assets\StepLogo.png" />
+    <Resource Include="BoxIcon.png" />
+    <Resource Include="Help.png" />
+    <Resource Include="Info.png" />
+    <Resource Include="RobotWallpaper2.jpg" />
+    <Resource Include="RobotWallpaper4.jpg" />
+    <Resource Include="StepLogo.png" />
+  </ItemGroup>
+
+</Project>

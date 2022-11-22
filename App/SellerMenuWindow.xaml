@@ -1,0 +1,168 @@
+﻿<Window x:Class="WpfAppWareHouse.SellerMenuWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:extend="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:local="clr-namespace:WpfAppWareHouse"
+        mc:Ignorable="d"
+        MinHeight="700"
+        MinWidth="1080"
+        Title="SellerMenuWindow" MouseDown="Window_MouseDown" Height="750" Width="1080" FontFamily="Century Gothic" WindowStartupLocation="CenterScreen" Icon="/BoxIcon.png">
+    <Grid>
+        <Grid Height="60" VerticalAlignment="Top" Background="#FF9C27B0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label FontFamily="Century Gothic" FontSize="17" Foreground="White"  Content="{Binding CurrentSellerName}" VerticalAlignment="Center"></Label>
+            <TextBlock Grid.Column="1" Text="Seller Menu" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" ></TextBlock>
+            <Button Grid.Column="2" Click="PowerOffButton_Click"  x:Name="PowerOffButton" HorizontalAlignment="Right" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}">
+                <materialDesign:PackIcon Kind="Power"/>
+            </Button>
+        </Grid>
+
+        <Grid Margin="0 60 0 0">
+           
+                
+            
+            <dragablz:TabablzControl>
+
+                <dragablz:TabablzControl.InterTabController>
+                    <dragablz:InterTabController/>
+                </dragablz:TabablzControl.InterTabController>
+
+              
+                    
+                
+                <!--1st Tab-->
+                <TabItem Header="CLIENTS">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <ListView Grid.Row="0" x:Name="MyListView"  ItemsSource="{Binding CurrentSellerClients, UpdateSourceTrigger=PropertyChanged}">
+                            <ListView.View >
+                                <GridView>
+                                    <GridViewColumn Width ="150" Header="Name" DisplayMemberBinding="{Binding ClientName}"></GridViewColumn>
+                                    <GridViewColumn Width ="150" Header="Surname" DisplayMemberBinding="{Binding ClientSurname}"></GridViewColumn>
+                                    <GridViewColumn Width ="150" Header="Email" DisplayMemberBinding="{Binding ClientEmail}"></GridViewColumn>
+                                    <GridViewColumn Width ="150" Header="Phone" DisplayMemberBinding="{Binding ClientPhone}"></GridViewColumn>
+                                    <GridViewColumn  Header="Adress" DisplayMemberBinding="{Binding ClientAdress}"></GridViewColumn>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                        <Border Grid.Row="1" BorderThickness="0.9" BorderBrush="LightGray" CornerRadius="5">
+                            <StackPanel Margin="2" >
+                           
+                                
+                            <extend:WatermarkTextBox Watermark="Name"       x:Name="ClientName"     Height="50"></extend:WatermarkTextBox>
+                            <extend:WatermarkTextBox Watermark="Surname"    x:Name="ClientSurname"  Height="50"></extend:WatermarkTextBox>
+                            <extend:WatermarkTextBox Watermark="Email"      x:Name="ClientEmail"    Height="50"></extend:WatermarkTextBox>
+                            <extend:WatermarkTextBox Watermark="Phone"      x:Name="ClientPhone"    Height="50"></extend:WatermarkTextBox>
+                            <extend:WatermarkTextBox Watermark="Adress"     x:Name="ClientAdress"   Height="50"></extend:WatermarkTextBox>
+                            <Button x:Name="AddClient" Click="AddClient_Click" Content="Add Client"></Button>
+
+                            </StackPanel>
+                        </Border>
+
+
+
+                    </Grid>
+                </TabItem>
+
+
+                <!--2nd Tab-->
+                <TabItem Header="GOODS">
+                    
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <ListView x:Name="MyListvIew2" Grid.Row="0" ItemsSource="{Binding CurrentSellerGoods,UpdateSourceTrigger=PropertyChanged}">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Width ="150" Header="Name" DisplayMemberBinding="{Binding GoodsName}"></GridViewColumn>
+                                    <GridViewColumn Width ="150" Header="Price" DisplayMemberBinding="{Binding GoodsPrice}"></GridViewColumn>
+                                    <GridViewColumn Width ="150" Header="Amount" DisplayMemberBinding="{Binding GoodsAmount}"></GridViewColumn>
+                                    <GridViewColumn Width ="150" Header="Description" DisplayMemberBinding="{Binding GoodsDescription}"></GridViewColumn>
+
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                        <Border Grid.Row="1" BorderThickness="0.9" BorderBrush="LightGray" CornerRadius="5">
+                            <StackPanel Margin="2" >
+
+
+                                <extend:WatermarkTextBox Watermark="Name"           x:Name="GoodsName"          Height="50"></extend:WatermarkTextBox>
+                                <extend:WatermarkTextBox Watermark="Price"          x:Name="GoodsPrice"         Height="50"></extend:WatermarkTextBox>
+                                <extend:WatermarkTextBox Watermark="Amount"         x:Name="GoodsAmount"        Height="50"></extend:WatermarkTextBox>
+                                <extend:WatermarkTextBox Watermark="Description"    x:Name="GoodsDescription"   Height="50"></extend:WatermarkTextBox>
+                                <Button Content="Add Goods" x:Name="AddGoodsButton" Click="AddGoodsButton_Click"></Button>
+
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </TabItem>
+
+                <!--3rd Tab-->
+                <TabItem Header="ORDERS">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <ListView x:Name="MyListvIew3" Grid.Row="0" ItemsSource="{Binding CurrentSellerOrders,UpdateSourceTrigger = PropertyChanged}">
+                            <ListView.View>
+                                <GridView>
+
+                                    <GridViewColumn Width ="150" Header="Client" DisplayMemberBinding="{Binding OrderingClient}"></GridViewColumn>
+                                    <GridViewColumn Width ="150" Header="Goods" DisplayMemberBinding="{Binding GoodsToOrder}"></GridViewColumn>
+                                    <GridViewColumn Width ="150" Header="Amount" DisplayMemberBinding="{Binding OrderAmount}"></GridViewColumn>
+                                    <GridViewColumn Width ="150" Header="Time" DisplayMemberBinding="{Binding OrderTime}"></GridViewColumn>
+
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </Grid>
+                </TabItem>
+
+
+                <!--4th Tab-->
+                <TabItem Header="MAKE AN ORDER">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition Height="0.1*"></RowDefinition>
+                            <RowDefinition Height="0.1*"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+
+                        <ListBox x:Name="MakeAnOrderGoodsList" Grid.Row="0" Grid.Column="0" ItemsSource="{Binding CurrentSellerGoods}"></ListBox>
+                        <ListBox x:Name="MakeAnOrderClientsList" Grid.Row="0" Grid.Column="1" ItemsSource="{Binding CurrentSellerClients}"></ListBox>
+                        
+                        <DatePicker Grid.Row="0" VerticalAlignment="Top" Grid.Column="2" Name="OrderDate" IsDropDownOpen="True" SelectedDateFormat="Short" />
+                        <extend:IntegerUpDown Name="MakeAnOrderAmountUpDown" Grid.ColumnSpan="3"  Grid.Row="1"  Height="20"></extend:IntegerUpDown>
+                        <Button Grid.ColumnSpan="3" Grid.Row="2" Content="Make An Order" Name="MakeAnOrder" Click="MakeAnOrder_Click"></Button>
+                        
+                    </Grid>
+
+                </TabItem>
+            </dragablz:TabablzControl>
+           
+        </Grid>
+
+    </Grid>
+</Window>
